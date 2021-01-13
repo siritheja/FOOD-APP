@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from .models import Item
 from django.template import loader
 from .forms import ItemForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required
 def index(request):
     item_list = Item.objects.all()
     context = {

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    <table align="center">
+        {% for field in form.visible_fields %}
+          {% if field.errors %}
+            <tr>
+            <td>
+              {% for error in field.errors %}
+              <li style="color:red">{{ error }}</li>
+              {% endfor %}
+            </td>
+            </tr>    
+          {% endif %}
+          <tr>
+            <td>
+                {{ field.label_tag }} <br>              
+              {{ field }}
+             
+            </td>
+            <td>
+                <!-- {% if field.help_text %} 
+                {{ field.help_text }}
+              {% endif %} --> </td>
+            </tr>
+          </tr>
+        {% endfor %}
+        <tr>
+        <td colspan="2" style="text-align: center;"><button type="submit" class="btn btn-dark">SignUp</button></td>
+    </tr>
+      </table>        
+    {{ form.field.error.as_text }}
+</form>
+{% endblock %}
