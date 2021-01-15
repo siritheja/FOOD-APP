@@ -14,8 +14,7 @@
         <a href='#' class="navbar-brand"><img src="{% static 'images/logo.jpg'%}" height="50px" width="50px" /> Foody</a>
         <div class="navbar">
             <a class="nav-link" href="{% url 'food:create_item' %}">Add item</a>
-            <a class="nav-item nav-link" href="#">Delete item</a>
-            <a class="nav-item nav-link" href="#">Edit item</a>
+
             {% if user.is_authenticated %}
                 <a class="nav-item nav-link" href="{% url 'logout' %}"> Logout </a>
             {% else %}
